@@ -15,3 +15,19 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+
+
+$( function( ) {
+  // ↓これで「スクロールした際に処理をする」が実装できる
+  $( window ).scroll( function( ) {
+    
+    // 1ピクセルでもスクロールしている場合
+    if $( window ).scrollTop() < 100) {
+      // z-indexを下げる
+      $( "#mainNav" ).css( "height", 10);
+    } else {
+      // z-indexを上げる
+      $( "#mainNav" ).css( "background-color", "white" );
+    }
+  });
+});
