@@ -16,18 +16,16 @@
 //= require bootstrap
 //= require_tree .
 
+  $(document).ready(function(){       
+            var scroll_pos = 0;
+            $(document).scroll(function() { 
+                scroll_pos = $(this).scrollTop();
+                if(scroll_pos >= 500) {
+                    $(".navbar-default").css('background-color', '#323232');
+                } else {
+                    $(".navbar-default").css('background-color', 'transparent');
+                }
 
-$( function( ) {
-  // ↓これで「スクロールした際に処理をする」が実装できる
-  $( window ).scroll( function( ) {
-    
-    // 1ピクセルでもスクロールしている場合
-    if $( window ).scrollTop() < 100) {
-      // z-indexを下げる
-      $( "#mainNav" ).css( "height", 10);
-    } else {
-      // z-indexを上げる
-      $( "#mainNav" ).css( "background-color", "white" );
-    }
-  });
+             });
 });
+
