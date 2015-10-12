@@ -5,13 +5,13 @@
 <h1>Appointment </h1>
 	<h2>Upcoming Appointment</h2>
 	 <% @appointments.each do |apt| %>
-	  <% if apt.app_date <= DateTime.now %>
+	  <% if apt.app_date >= DateTime.now %>
 	 	<p>On <%= apt.app_date %> at <%= apt.check_in_time %> for <%= apt.dogs.where(id: apt.dog_id).first.name %>  <%= link_to "Edit", edit_user_appointment_path(current_user, apt) %> | <%= link_to "Delete", user_appointment_path(current_user, apt), method: :delete %></p>
 	  <% end %>
 	 <% end %>
 	 <h2>Completed Appointment</h2>
 	  <% @appointments.each do |apt| %>
-	  	<% if apt.app_date > DateTime.now %>
+	  	<% if apt.app_date < DateTime.now %>
 	 		<p>On <%= apt.app_date %> at <%= apt.check_in_time %> for <%= apt.dogs.where(id: apt.dog_id).first.name %>  
 	  	<% end %>
 	  <% end %>

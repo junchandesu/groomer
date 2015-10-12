@@ -7,6 +7,8 @@ validates :check_in_time, presence: true
 validates :telephone, presence: true
 validate :check_and_format_phone_number
 
+after_create :send_confirmation_emails
+
   # Normalizes the attribute itself before validation
 #  validates_plausible_phone :telephone, presence: true
 
@@ -20,5 +22,12 @@ validate :check_and_format_phone_number
     if self.telephone.length != 10
       self.errors.add(:telephone, "can only be 10 digits")
     end
+  end
+
+  private 
+  def send_confirmation_emails
+   user.dogs.each do |dog|
+   	ConfirmationMailer.appointment_confirmation(dog.user, dog, self).deliver_now
+   end
   end
 end

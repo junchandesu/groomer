@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ 	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+ </head>
+ <body>
+ 	<h1> Thank you for completing the reservation  <%= (@user.first_name || @user.last_name) if (@user.first_name || @user.last_name) || @user.email %>.</h1>
+	<p>We will call you at <%= number_to_phone(@appointment.telephone) %> to confirm the reservation previous day from the reservation date: <%= @appointment.app_date %><p>
+
+	Here is the summary of your reservation.
+	<p>On <%= @appointment.app_date %> at <%= @appointment.check_in_time %> for <%= @dog.name %></p>
+	<p>If your schedule is changed, please change/delete your reservation from <%= link_to "here", "http://localhost:3000/users/@user/appointments" %>
+
+	<p>We look forward to seeing you and your loved one soon!</p>
+
+	<p>Thank you for choosing Fuji Pet Salon.</p>
+</body>
+</html>
+ 

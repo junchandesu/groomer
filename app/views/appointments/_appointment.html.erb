@@ -1,3 +1,4 @@
+<%= content_tag :div, class: 'media', id: "appointment-#{appointment.id}" do %>
 <ul>
 	<li>Appointment Date:<%= appointment.app_date %></lh>
 	<li>Check in time <%= appointment.check_in_time %> AM</li>
@@ -7,3 +8,4 @@
     	<li>Any special memo: <%= appointment.memo %>(We will do the best to accommodate, but we are sorry that we can not guarantee.)</li>
     <% end %>
 </ul>
+<% end %>
