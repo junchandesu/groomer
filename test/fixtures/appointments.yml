@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  app_date: 2015-10-08
+  check_in_time: 2015-10-08 17:12:37
+  telephone: 1
+  memo: MyString
+  user_id: 
+
+two:
+  app_date: 2015-10-08
+  check_in_time: 2015-10-08 17:12:37
+  telephone: 1
+  memo: MyString
+  user_id: 

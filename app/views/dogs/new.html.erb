@@ -1,0 +1,9 @@
+<%=render 'layouts/nav' %>
+<div class="left-space top">
+<%= render 'layouts/flash' %>
+<div class="top">
+<h1>Plesae let us know about your dog.</h1>
+
+<%= render partial: 'form', locals:{ user:@user, dog:@dog} %>
+</div>
+</div>

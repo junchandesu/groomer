@@ -1,0 +1,41 @@
+ <nav id="mainNav" class="navbar navbar-reverse navbar-fixed-top affix-top navbar-background">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="true">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="/">Fuji Pet Salon</a>
+     </div>
+           <!-- Collect the nav links, forms, and other content for toggling -->
+     <div class="navbar-collapse collapse navbar-right" id="bs-example-navbar-collapse-1" aria-expanded="true">
+       <ul class="nav navbar-nav navbar-right　dropdown-menu">
+        <% if current_user %>
+           <li class=""><%= link_to "Your reservation", user_appointments_path(current_user) %>
+           <li class=""><%= link_to "Your profile", edit_user_registration_path %>
+           <li class=""><%= link_to "Log out", destroy_user_session_path, method: :delete , class: "page-scroll" %></li>
+        <% end %>
+       </ul>
+     </div>
+            <!-- /.navbar-collapse -->
+   </div>
+        <!-- /.container-fluid -->
+</nav>
+<div class="top">
+<h1> Thank you for completing the reservation  <%= current_user.first_name + " " + current_user.last_name || current_user.email %>.</h1>
+
+<p>The confirmation letter is sent to your email address: <%= current_user.email %>.</p>
+
+<p>We will call you at <%= number_to_phone(@appointment.telephone) %> to confirm the reservation previous day from the reservation date: <%= @appointment.app_date %><p>
+
+Here is the summary of your reservation.
+<%= render @appointment %>
+
+<p>We look forward to seeing you and your loved one soon!</p>
+
+<p>Thank you for choosing Fuji Pet Salon.</p>
+</div>
+<%= link_to "Log Out", destroy_user_session_path, method: :delete , class: "btn btn-lg btn-success" %>

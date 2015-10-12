@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  
+  devise_for :users
+  resources :users, only: [:update, :show] do
+    resources :appointments
+    resources :dogs
+  end
+
+
   get 'welcome/index'
 
   get 'welcome/service'
@@ -6,6 +14,8 @@ Rails.application.routes.draw do
   get 'welcome/about'
 
   get 'welcome/contact'
+
+  get 'users/:user_id/appointments/:id/thank_you' => 'appointments#thank_you', as: :thank_you
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

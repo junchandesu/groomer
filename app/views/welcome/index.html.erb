@@ -1,11 +1,53 @@
+
+        <nav id="mainNav" class="navbar navbar-default navbar-fixed-top affix-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="true">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Fuji Pet Salon</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="navbar-collapse collapse navbar-right" id="bs-example-navbar-collapse-1" aria-expanded="true">
+                <ul class="nav navbar-nav navbar-right　dropdown-menu">
+                    <li class="">
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li class="">
+                        <a class="page-scroll" href="#services">Services</a>
+                    </li>
+                    <li class="">
+                        <a class="page-scroll" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="">
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                    <% if current_user %>
+                    <li class=""><%= link_to current_user.email, edit_user_registration_path %>
+                      <li class=""><%= link_to "Log out", destroy_user_session_path, method: :delete , class: "page-scroll" %></li>
+                    <% end %>
+                  </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
 	 <header>
-        <div class="header-content">
-            <div class="header-content-inner">
-                <br/><br/><br/>
-                <h1 style="font-size: 65px;">Welcome to Fuji Pet Salon!</h1>
-                <hr>
-                <h2><p>We take care of your precious family in a friendly, pleasantly mannter  in the heart of Manhattan Beach.</P>
-                    <p>Call us and get groomed today! <br/>
+        <div class="header-content-inner">
+         <br/><br/><br/>
+          <div class="header-content">  
+            <%= render 'layouts/flash' %>
+            <h1 style="font-size: 65px;">Welcome to Fuji Pet Salon!</h1>
+            <hr>
+              <a href="/users/sign_in" class="btn btn-default btn-xl wow tada" style="visibility: visible; animation-name: tada;">Reserve online Here<span class="heart"></span></a>
+            <h2><p>We take care of your precious family in a friendly, pleasantly mannter  in the heart of Manhattan Beach.</P>
+             <p>Call us and get groomed today! <br/>
                    (As space and time permit.)!</p></h2>
             </div>
         </div>
@@ -18,7 +60,6 @@
                     <hr class="light">
                     <p class="text-faded"><p>Fuji Pet Salone has been in business since 1940.</p> 
                     <p> We have been known to server our local community and have been accepted ever since. </p>
-                    <a href="#" class="btn btn-default btn-xl">Get Started!</a>
                 </div>
             </div>
         </div>
@@ -37,14 +78,14 @@
             <div class="row">
                 <div class="col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x fa-diamond wow bounceIn text-primary" style="visibility: visible; animation-name: bounceIn;"></i>
+                        <i class="fa fa-4x fa-paw wow bounceIn text-primary" style="visibility: visible; animation-name: bounceIn;"></i>
                         <h3>Bath & Brush service</h3>
                         <p class="text-muted">begins with a warm bath with your choice of premium shampoo followed by blow dry and brush out.  We also trim nails and clean ears (removing ear hair when applicable).  Note:  Anal sac expulsion (small dogs only unless otherwise requested) is performed at the start of the bath</p>
                     </div>
                 </div>
                 <div class="col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x fa-paper-plane wow bounceIn text-primary" data-wow-delay=".1s" style="visibility: visible; animation-delay: 0.1s; animation-name: bounceIn;"></i>
+                        <i class="fa fa-4x fa-scissors wow bounceIn text-primary" data-wow-delay=".1s" style="visibility: visible; animation-delay: 0.1s; animation-name: bounceIn;"></i>
                         <h3>Bath, Brush & "Tidy" service</h3>
                         <p class="text-muted">ncludes everything listed in the Bath & Brush service PLUS we "neaten-up-your-pup" around the "edges" by trimming pads/paws, face (lightly), belly and privates (sanitary).</p>
                     </div>
@@ -53,7 +94,7 @@
             <div class="row">
                 <div class="col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x fa-newspaper-o wow bounceIn text-primary" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: bounceIn;"></i>
+                        <i class="fa fa-4x fa-diamond wow bounceIn text-primary" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: bounceIn;"></i>
                         <h3>Bath & Haircut </h3>
                         <p class="text-muted">includes everything listed in the Bath, Brush & "Tidy" service PLUS a custom haircut from nose to tail.  You tell us how you would like your pet to look and then we will work our grooming magic to deliver a look that compliments your pet's breed and personality.  .</p>
                     </div>
@@ -81,7 +122,7 @@
                                     Shampoo
                                 </div>
                                 <div class="project-name">
-                                    Smells good and feel relazing
+                                    Smells good and feel relaxing
                                 </div>
                             </div>
                         </div>
@@ -172,7 +213,7 @@
         <div class="container text-center">
             <div class="call-to-action">
                 <h2>TOO busy to call us during business hours?  No problem! </h2>
-                <a href="#" class="btn btn-default btn-xl wow tada" style="visibility: visible; animation-name: tada;">Click Here to Reserver your doggie's groomer 24/7 online</a>
+                <a href="/users/sign_in" class="btn btn-default btn-xl wow tada" style="visibility: visible; animation-name: tada;">Click Here to Reserver your doggie's groomer 24/7 online</a>
             </div>
         </div>
     </aside>
@@ -192,9 +233,9 @@
                 <div class="text-center">
                     <p>Our business hours<p>
                         <ul  style="list-style-type: none;">
-                            <li>Monday, Wednesday, Thursday, Friday, Saturday</li>
+                            <li>Wednesday, Thursday, Friday, Saturday</li>
                             <li>9:00am to 5:00pm</li>
-                            <li>Cloased: Sunday and Tuesday</li>
+                            <li>Cloased: Sunday, Monday, and Tuesday</li>
                         </ul>
                 </div>
              </div>

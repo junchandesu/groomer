@@ -24,6 +24,12 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 # CSS Framework
 gem 'bootstrap-sass'
+# Flexible authentication solution for Rails with Warden
+gem 'devise', '~> 3.5.2'
+#  create .ignore file to store confidential data
+gem 'figaro', '1.0'
+# phone validate, display
+gem 'phony_rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

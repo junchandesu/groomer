@@ -1,0 +1,58 @@
+<div class="row left-space">
+    <div class="col-md-8">
+    <%=form_for [user, dog]  do |f| %>
+     <% if @dog.errors.any? %>
+             <div class="alert alert-danger">
+                <h4>There are <%= pluralize(dog.errors.count, "error") %>.</h4>
+                <ul>
+                    <% dog.errors.full_messages.each  do |msg| %>
+                     <li><%= msg %></li>
+                    <% end %>
+                </ul>
+             </div>
+    <% end %>
+        <%= form_group_tag(dog.errors[:name]) do %>
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+        <% end %>
+        <div class="form-group">
+            <%= f.label :gender %>
+        
+        <%= f.select :gender, [["Female", "f"], ["Male", "m"]] %> 
+        </div>
+        
+        <div class="form-group">
+            <%= f.label :birthday %>
+            <%= f.date_select :birthday, start_year: 1990, end_year: Date.current.year %>
+        </div>
+            
+        <%= form_group_tag(dog.errors[:weight]) do %>
+            <%= f.label :weight %>(lbs)
+            <%= f.text_field :weight, class: 'form-control' %>
+        <% end %>
+        <%= form_group_tag(dog.errors[:breed]) do %>
+            <%= f.label :breed %>
+            <%= f.text_field :breed, class: 'form-control' %>
+        <% end %>   
+        <div class="form-group">
+            <%= f.label :mix %>
+            <%= f.check_box :mix %>
+        </div>  
+        <div class="form-group">
+            <%= f.submit "Save your dog information" %>
+        </div>  
+        <a href="javascript:history.back()">Go back to Appointment process</a>
+     <% end %>
+     </div>
+     <% if current_user.dogs.any? %>
+     <div class="col-md-4">
+        <div class="form-group" %>
+                <%= label :dog_id, "Please choose name of your dog to edit the information" %>
+           <%= render partial: current_user.dogs %>
+
+        </div>
+    </div>
+    <% end %>
+</div>  
+
+

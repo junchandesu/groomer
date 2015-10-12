@@ -1,0 +1,5 @@
+<%= render 'layouts/nav' %>
+<div class="left-space">
+  <h1>Change the reservation?</h1>
+  <%= render partial: 'form', locals: { user: current_user, appointment: @appointment} %>
+</div>

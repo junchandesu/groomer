@@ -1,0 +1,44 @@
+<nav id="mainNav" class="navbar navbar-primary affix-top navbar-background">
+  <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+     <div class="navbar-header">
+      <a class="navbar-brand page-scroll" href="/">Fuji Pet Salon</a>
+     </div>
+           <!-- Collect the nav links, forms, and other content for toggling -->
+     <div class="navbar-collapse collapse navbar-right" id="bs-example-navbar-collapse-1" aria-expanded="true">
+       <ul class="nav navbar-nav navbar-right　dropdown-menu">
+        <% if current_user %>
+           <li class=""><%= link_to current_user.email, edit_user_registration_path %>
+           <li class=""><%= link_to "Log out", destroy_user_session_path, method: :delete , class: "page-scroll" %></li>
+        <% end %>
+       </ul>
+     </div>
+            <!-- /.navbar-collapse -->
+   </div>
+        <!-- /.container-fluid -->
+</nav>
+
+
+
+<div class="left-space"><h2>Forgot your password?</h2>
+
+<div class="row">
+ <div class="col-md-8">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+   <%= devise_error_messages! %>
+
+   <div class="form-group">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: "Enter email"  %>
+   </div>
+
+   <div class="form-group">
+    <%= f.submit "Send me reset password instructions", class: 'btn btn-success'  %>
+   </div>
+  <% end %>
+  <div class="form-group">
+	<%= render "devise/shared/links" %>
+  </div>
+ </div>
+</div>
+</div>

@@ -1,0 +1,52 @@
+<nav id="mainNav" class="navbar navbar-primary affix-top navbar-background">
+  <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+     <div class="navbar-header">
+      <a class="navbar-brand page-scroll" href="/">Fuji Pet Salon</a>
+     </div>
+           <!-- Collect the nav links, forms, and other content for toggling -->
+     <div class="navbar-collapse collapse navbar-right" id="bs-example-navbar-collapse-1" aria-expanded="true">
+       <ul class="nav navbar-nav navbar-right　dropdown-menu">
+        <% if current_user %>
+           <li class=""><%= link_to current_user.email, edit_user_registration_path %>
+           <li class=""><%= link_to "Log out", destroy_user_session_path, method: :delete , class: "page-scroll" %></li>
+        <% end %>
+       </ul>
+     </div>
+            <!-- /.navbar-collapse -->
+   </div>
+        <!-- /.container-fluid -->
+</nav>
+
+
+
+<div class="left-space">
+<h2>Sign up</h2>
+
+<div class="row">
+  <div class="col-md-8">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control', placeholder: "Enter email" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control', placeholder: "Enter password" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "Enter password confirmation" %>
+      </div>
+      <div class="form-group">
+        <%= f.submit "Sign up", class: 'btn btn-success' %>
+      </div>
+      <div class="form-group">
+        <%= render "devise/shared/links" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>
+</div>

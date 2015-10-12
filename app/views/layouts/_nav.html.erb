@@ -1,0 +1,26 @@
+ <nav id="mainNav" class="navbar navbar-reverse affix-top navbar-background">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="true">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="/">Fuji Pet Salon</a>
+     </div>
+           <!-- Collect the nav links, forms, and other content for toggling -->
+     <div class="navbar-collapse collapse navbar-right" id="bs-example-navbar-collapse-1" aria-expanded="true">
+       <ul class="nav navbar-nav navbar-right　dropdown-menu">
+        <% if current_user %>
+           <li class=""><%= link_to "Your reservation", user_appointments_path(current_user) %>
+           <li class=""><%= link_to "Your profile", edit_user_registration_path %>
+           <li class=""><%= link_to "Log out", destroy_user_session_path, method: :delete , class: "page-scroll" %></li>
+        <% end %>
+       </ul>
+     </div>
+            <!-- /.navbar-collapse -->
+   </div>
+        <!-- /.container-fluid -->
+</nav>
