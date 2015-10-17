@@ -2,10 +2,15 @@
 <ul>
 	<li>Appointment Date:<%= appointment.app_date %></lh>
 	<li>Check in time <%= appointment.check_in_time %> AM</li>
-	<li>The name of your dog: <%= appointment.dogs.find_by(id: appointment.dog_id).name %></li>
-	
-	<% if !appointment.memo.empty? %>
-    	<li>Any special memo: <%= appointment.memo %>(We will do the best to accommodate, but we are sorry that we can not guarantee.)</li>
-    <% end %>
+	<li>The name(s) of your dog: </li>
+		<% appointment.appointments_dogs.each do |ap_dog| %>
+			<% if ap_dog.dog %>
+			 </li><%= ap_dog.dog.name %></li>
+			<% end %>
+			<% if !appointment.memo.empty? %>
+    			<li>Any special memo: <%= appointment.memo %>(We will do the best to accommodate, but we are sorry that we can not guarantee.)</li>
+    		<% end %>
+    	<% end %>
+
 </ul>
 <% end %>

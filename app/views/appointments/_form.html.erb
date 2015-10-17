@@ -1,6 +1,8 @@
 <%= render 'layouts/flash' %>
 <div class="row">
 	<div class="col-md-8">
+		<button id="my-next-calendar">Click</button>
+		<div id='calendar2'></div>
 		<%=form_for [user, appointment]  do |f| %>
 			<% if appointment.errors.any? %>
 			 <div class="alert alert-danger">
@@ -16,9 +18,15 @@
 				<%= f.label :app_date %>
 				<%= f.date_select :app_date, class:'form-control' %>
 			<% end %>
+			<div id='calendar'></div>
 			<% if current_user.dogs.any? %>
-				<%= f.label :dog_id, "Please choose name of your dog." %>
+				<%= f.label :dog_ids, "Please choose name of your dog." %>
            		<%= f.collection_select :dog_id, current_user.dogs.all, :id, :name %>
+
+
+           		f.collection_select :dog_id, current_user.dogs.all, :id, :name, {}, multiple: true, size: 3
+
+           		f.collection_select :dog_id, current_user.dogs.all, :id, :name, {}, multiple: true, size: 3 
            		<p><%= link_to "Add/Edit/Delete your dog information", new_user_dog_path(current_user) %></p>
            	 <% else %>
            	  <p><%= link_to "Add your dog information", new_user_dog_path(current_user) %></p>
@@ -32,16 +40,16 @@
 			<%= form_group_tag(appointment.errors[:telephone]) do %>
 				<%= f.label :telephone %>
 				<% if current_user.phone_number && !appointment.telephone %>
-				<%= f.telephone_field :telephone , :value => number_to_phone(current_user.phone_number)%>
+				<%= f.text_field :telephone , :value => number_to_phone(current_user.phone_number), id: 'phone' %>
 				<% else %>
-				<%= f.telephone_field :telephone , :value => number_to_phone(appointment.telephone)%>
+				<%= f.text_field :telephone , :value => number_to_phone(appointment.telephone), id: 'phone'%>
 				<% end %>
 				
 
 			<% end %>			
 			<div class="form-group">
 				<%= f.label :memo %>
-				<%= f.text_area :memo %>
+				<%= f.text_area :memo%>
  			</div>	
  			<div class="form-group">
  				<%= f.submit "Next to confirm" %>
@@ -49,3 +57,48 @@
 		<% end %>
 	</div>
 </div>	
+<script type="text/javascript">
+ $(document).ready(function(){
+	
+		var date = new Date();
+		var d = date.getDate();
+		var m = date.getMonth();
+		var y = date.getFullYear();
+
+		$('#my-next-calendar').click(function(){
+			$('#calender2').fullCalendar('Next');
+		});
+$('#calendar').fullCalendar({
+	dayClick: function(){
+		alert('a day has been clicked!');
+	},
+	hiddenDays: [0,1,2],  //Sun,Mon,Tue are hidden
+	editable: true,
+	weekMode: 'liquid',  //fixed week count
+	contentHeight: 400,
+	aspectRatio: 5,
+	Boolean, default: true,  //resize the window
+	url: '#',
+    eventSources: [
+
+        // your event source
+        {
+            events: [ // put the array in the `events` property
+                {
+                   title: 'Fuji Reservtion',
+                   start: moment().subtract(10, 'days').calendar(),
+                    end: jQuery.now(),
+                    allDay: true
+                }
+            ],
+            backgroundColor: 'green'    // an option!
+           // textColor: 'yellow' // an option!
+        }
+        ],
+	});
+
+//<td class="fc-day fc-widget-content fc-sun fc-other-month fc-past" data-date="2015-09-27"></td>
+
+	
+ })
+</script>

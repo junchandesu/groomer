@@ -1,0 +1,2 @@
+  <%= f.hidden_field :id %>  <%# <== ここと %>
+  <%= f.select :dog_id, options_for_select([['---', nil]] + current_user.dogs.all.map{|m| [m.name, m.id]}, f.object.dog_id) %>

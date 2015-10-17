@@ -1,16 +1,27 @@
 class Appointment < ActiveRecord::Base
 belongs_to :user
-has_many :dogs, :through => :user
+#has_many :dogs, :through => :user
+has_many :dogs, through: :appointments_dogs
+has_many :appointments_dogs
+accepts_nested_attributes_for :appointments_dogs
 validates :app_date, presence: true
-validates :dog_id, presence: true
-validates :check_in_time, presence: true
+#validates :check_in_time, presence: true
 validates :telephone, presence: true
 validate :check_and_format_phone_number
 
-after_create :send_confirmation_emails
+#after_create :send_confirmation_emails
 
   # Normalizes the attribute itself before validation
 #  validates_plausible_phone :telephone, presence: true
+def self.fully_booked_for_today?
+  appts = Appointment.where(app_date: Time.now.to_date)
+  return appts < 7
+  
+end
+
+# before_validation do |model|
+#   model.subset_array.reject!(&:blank?) if model.subset_array
+# end
 
  def telephone=(num)
     num.gsub!(/\D/, '') if num.is_a?(String)

@@ -30,7 +30,15 @@ gem 'devise', '~> 3.5.2'
 gem 'figaro', '1.0'
 # phone validate, display
 gem 'phony_rails'
-
+# calender js
+gem 'momentjs-rails'
+gem 'fullcalendar-rails', '~> 2.4.0'
+# control randam data
+gem 'seed-fu', '~> 2.3'
+# create sample data
+gem 'faker', '~> 1.5.0'
+# easy way to use input masked plugin on rails
+gem 'maskedinput-rails', '~> 1.4.0.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
