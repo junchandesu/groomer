@@ -3,29 +3,39 @@ class AppointmentsController < ApplicationController
   def create 
     #@user = current_user  
     # return if Appointment.fully_booked_for_today?
-   	@appointment = Appointment.new(params_appo)
-    @appointment.user = current_user
+    #app_date = Date.new(params[:appointment][:app_date])
+
+    dogs = params[:appointment][:dog_id]
+    dogs.shift #dumps first blank id
+   	@appointment = current_user.appointments.build(params_appo)
+
+
+    if Appointment.unavailable_for?(@appointment)
+      flash[:error] = "No appt for that day"
+      redirect_to :back and return
+    end
      if @appointment.save
       # create appointments_dog object for all dogs
       # paramsß will have dog ids
       # @appointment.appointments_dogs.create(dog: dog)
       # @appointments_dogs[@appointment][@appointment.dog]
-
-      @appointments_dog = @appointment.appointments_dogs.build(dog_id: @appointment.dog_id)
+        dogs.each do |dog|
+          @appointment.appointments_dogs.create(dog_id: dog.to_i)
+        end
+  
 
       #   current_user.dogs.each do |dog|
       #    @appointments_dogs = @appointment.appointments_dogs.create(dog_id: dog.id)
       #   end
-      if @appointments_dog.save
+      #if @appointments_dog.save
 
-  		flash[:notice] = "reservation confirmed"
-  		redirect_to thank_you_path(current_user, @appointment)
+  		  flash[:notice] = "reservation confirmed"
+  		  redirect_to thank_you_path(current_user, @appointment)
   	  elsif 
-  		flash[:error] = "error saving appointment"
-  		render :new
+  		  flash[:error] = "error saving appointment"
+  		  render :new
   	  end
    end
-  end
 
   def index
     @appointments = current_user.appointments.all
@@ -42,7 +52,6 @@ class AppointmentsController < ApplicationController
   def new
     @appointment = Appointment.new
     @user = current_user
-
   end
 
   def edit

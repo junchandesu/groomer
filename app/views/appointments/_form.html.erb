@@ -1,8 +1,6 @@
 <%= render 'layouts/flash' %>
 <div class="row">
 	<div class="col-md-8">
-		<button id="my-next-calendar">Click</button>
-		<div id='calendar2'></div>
 		<%=form_for [user, appointment]  do |f| %>
 			<% if appointment.errors.any? %>
 			 <div class="alert alert-danger">
@@ -14,19 +12,28 @@
 			 	</ul>
 			 </div>
 			<% end %>
-			<%= form_group_tag(appointment.errors[:app_date]) do %>
+		<div id='calendar'></div>
+		  <div id="calendarModal" class="modal fade">
+			<div class="modal-dialog">
+   			 <div class="modal-content">
+        		<div id="modalBody" class="modal-body"> </div>
+        		<div class="modal-footer">
+        			<button type="button" class="btn btn-primary" id="app_date_value">Yes</button>
+            		<button type="button" class="btn btn-default" id ="app_date_nonselected" data-dismiss="modal">No</button>
+        		</div>
+    		</div>
+		    </div>
+	     </div>
+	     <%= form_group_tag(appointment.errors[:app_date]) do %>
 				<%= f.label :app_date %>
 				<%= f.date_select :app_date, class:'form-control' %>
-			<% end %>
-			<div id='calendar'></div>
+				<div id="app_date_field"></div>
+		<% end %>
+
 			<% if current_user.dogs.any? %>
 				<%= f.label :dog_ids, "Please choose name of your dog." %>
-           		<%= f.collection_select :dog_id, current_user.dogs.all, :id, :name %>
+           		<%= f.collection_select :dog_id, current_user.dogs.all, :id, :name, {}, multiple: true %>
 
-
-           		f.collection_select :dog_id, current_user.dogs.all, :id, :name, {}, multiple: true, size: 3
-
-           		f.collection_select :dog_id, current_user.dogs.all, :id, :name, {}, multiple: true, size: 3 
            		<p><%= link_to "Add/Edit/Delete your dog information", new_user_dog_path(current_user) %></p>
            	 <% else %>
            	  <p><%= link_to "Add your dog information", new_user_dog_path(current_user) %></p>
@@ -64,41 +71,100 @@
 		var d = date.getDate();
 		var m = date.getMonth();
 		var y = date.getFullYear();
+		var month = new Array();
+		month[0] = "January";
+		month[1] = "February";
+		month[2] = "March";
+		month[3] = "April";
+		month[4] = "May";
+		month[5] = "June";
+		month[6] = "July";
+		month[7] = "August";
+		month[8] = "September";
+		month[9] = "October";
+		month[10] = "November";
+		month[11] = "December";
+		
 
-		$('#my-next-calendar').click(function(){
-			$('#calender2').fullCalendar('Next');
-		});
+		
 $('#calendar').fullCalendar({
-	dayClick: function(){
-		alert('a day has been clicked!');
-	},
-	hiddenDays: [0,1,2],  //Sun,Mon,Tue are hidden
 	editable: true,
+		dayRender : function(date, cell) {
+		var today = new Date();
+		var cellYear = date.format('YYYY');
+		var cellMonth = date.format('MM');
+		var cellDay = date.format('DD');
+		        
+		// date = $.fullCalendar.formatDate(date, 'YYYY, MM, DD');
+		// cellDate = $('.fc-day').find(data('date'));
+		if (date < today) {
+			cell.css("background-color", "yellow");
+			cell.css("opacity", 0.5);
+		}
+
+	
+		$('.fc-day').each(function(){
+			var thisDate = $(this).attr('data-date');
+			var td = $(this).closest('td');
+			<% AppointmentsDog.list.each do |key, value| %>
+			  if ('<%= key %>' == thisDate){
+				td.addClass('background-pink');
+			}
+			<% end %>
+		});
+	},
+	dayClick: function(date, jsEvent, view) {
+		var today = new Date();
+		var clicked_date = date;
+		var sel_year = date.format('YYYY');
+		var sel_month = date.format('MM');
+		var sel_day = date.format('DD');
+		console.log("you chose:" + sel_year + " " + sel_month + " " + sel_day);
+       if (date > today && (!$(this).is('.background-pink')) &&(!$(this).is('.fc-sun'))&&(!$(this).is('.fc-mon'))&&(!$(this).is('.fc-tue'))){
+       	//appointment.fully_booked_for_today?(date) 
+        	// I could not specify the condition for  "&& ($(this).css('background-color')=="grey")"
+         // change the day's background color just for fun
+        // $(this).css('background-color', 'red');
+         $('#modalBody').html("Would you like to book on" + date.format() + "?");
+         $('#eventUrl').attr('href',event.url);
+         $('#calendarModal').modal();       
+    	 $('#app_date_value').click(function(){
+    	 $('#calendarModal').modal('hide');
+         $('#appointment_app_date_1i').empty();
+         $('#appointment_app_date_1i').append("<option value ='" + sel_year + " selected = 'selected'>" + sel_year + "</option>");
+         $('#appointment_app_date_2i').empty();
+         $('#appointment_app_date_2i').append("<option value ='" + sel_month + " selected = 'selected'>" + month[sel_month - 1] + "</option>");
+         $('#appointment_app_date_3i').empty();
+         $('#appointment_app_date_3i').append("<option value ='" + sel_day + " selected = 'selected'>" + sel_day + "</option>");
+   		 
+		});
+    	 $('#app_date_value').click(function(){
+    	 	$(this).closest('td').addClass('background-pink');
+    	 });
+    	
+    	 $('#app_date_nonselected').click(function(){
+    	 	 
+    	 });
+    	 
+     }
+    
+    },
+
+      // eventClick:  function(event, jsEvent, view) {
+      //       $('#modalTitle').html(event.title);
+      //       $('#modalBody').html(event.description);
+      //      	 $('#eventUrl').attr('href',event.url);
+      //       $('#calendarModal').modal();
+
+      //   },
+		
 	weekMode: 'liquid',  //fixed week count
-	contentHeight: 400,
-	aspectRatio: 5,
 	Boolean, default: true,  //resize the window
 	url: '#',
-    eventSources: [
 
-        // your event source
-        {
-            events: [ // put the array in the `events` property
-                {
-                   title: 'Fuji Reservtion',
-                   start: moment().subtract(10, 'days').calendar(),
-                    end: jQuery.now(),
-                    allDay: true
-                }
-            ],
-            backgroundColor: 'green'    // an option!
-           // textColor: 'yellow' // an option!
-        }
-        ],
+
+   
 	});
-
-//<td class="fc-day fc-widget-content fc-sun fc-other-month fc-past" data-date="2015-09-27"></td>
-
 	
  })
 </script>

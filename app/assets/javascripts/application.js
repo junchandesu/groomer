@@ -31,6 +31,8 @@
                 }
 
              });
+
+           
 });
 
 jQuery(function($){
@@ -39,3 +41,4 @@ jQuery(function($){
    $("#tin").mask("99-9999999");
    $("#ssn").mask("999-99-9999");
 });
+
