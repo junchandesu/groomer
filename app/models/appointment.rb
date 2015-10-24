@@ -8,7 +8,7 @@ validates :app_date, presence: true
 validates :check_in_time, presence: true
 validates :telephone, presence: true
 validate :check_and_format_phone_number
-validates :dog_id, presence: true
+#validates :dog_id, presence: true  --removed validation because dog_id returns nil
 
 #after_create :send_confirmation_emails
 

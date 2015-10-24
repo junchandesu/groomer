@@ -12,6 +12,11 @@
 			 	</ul>
 			 </div>
 			<% end %>
+		<% if !appointment.app_date %>
+			<h2><i> Please click the date on calendar to choose the appointment date.</i></h2>
+			<br>
+			<br>
+		<% end %>
 		<div id='calendar'></div>
 		  <div id="calendarModal" class="modal fade">
 			<div class="modal-dialog">
@@ -25,24 +30,23 @@
 		    </div>
 	     </div>
 	     <%= form_group_tag(appointment.errors[:app_date]) do %>
-				<%= f.label :app_date %>
-				<%= f.date_select :app_date, class:'form-control' %>
-				<div id="app_date_field"></div>
-		<% end %>
+				<%= f.label :app_date, "Appointment Date" %>				
+				<%= f.date_select :app_date, class:'form-control', id: 'app_date' %>
+		 <% end %>
 
 			<% if current_user.dogs.any? %>
-				<%= f.label :dog_ids, "Please choose name of your dog." %>
-           		<%= f.collection_select :dog_id, current_user.dogs.all, :id, :name, {}, multiple: true %>
-
-           		<p><%= link_to "Add/Edit/Delete your dog information", new_user_dog_path(current_user) %></p>
+				<%= f.label :dog_ids, "Please choose name of your dog. " %>
+           		<%= f.collection_select :dog_id, current_user.dogs.all, :id, :name, {}, multiple: true, size: 3 %>
+           		<p><i>If you do not choose one, you will be bringing one dog.</i></p>
+           		<p><%= link_to "Add/Edit/Delete your dog information ", new_user_dog_path(current_user) %></p>
            	 <% else %>
-           	  <p><%= link_to "Add your dog information", new_user_dog_path(current_user) %></p>
+           	  <p><%= link_to "Add your dog information or we undersatnd you will be bringing one dog.", new_user_dog_path(current_user) %></p>
       
            	<% end %>
 			<%= form_group_tag(appointment.errors[:check_in_time]) do %>
 				<%= f.label :check_in_time %>
 				<%= f.select :check_in_time, [["08:00 AM", "08:00"], ["08:30 AM", "08:30"], ["09:00 AM", "09:00"], ["09:30 AM", "09:30"]] %>
-			
+				(Please bring your dog(s) only those times.)
 			<% end %>
 			<%= form_group_tag(appointment.errors[:telephone]) do %>
 				<%= f.label :telephone %>
@@ -66,6 +70,9 @@
 </div>	
 <script type="text/javascript">
  $(document).ready(function(){
+ 	 $('#appointment_app_date_1i').empty();
+ 	 $('#appointment_app_date_2i').empty();
+ 	 $('#appointment_app_date_3i').empty();
 	
 		var date = new Date();
 		var d = date.getDate();
@@ -138,14 +145,7 @@ $('#calendar').fullCalendar({
          $('#appointment_app_date_3i').append("<option value ='" + sel_day + " selected = 'selected'>" + sel_day + "</option>");
    		 
 		});
-    	 $('#app_date_value').click(function(){
-    	 	$(this).closest('td').addClass('background-pink');
-    	 });
-    	
-    	 $('#app_date_nonselected').click(function(){
-    	 	 
-    	 });
-    	 
+    	    	 
      }
     
     },

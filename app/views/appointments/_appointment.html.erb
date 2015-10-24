@@ -5,7 +5,7 @@
 	<li>The name(s) of your dog: </li>
 		<% appointment.appointments_dogs.each do |ap_dog| %>
 			<% if ap_dog.dog %>
-			 </li><%= ap_dog.dog.name %></li>
+			 <%= ap_dog.dog.name %><br>
 			<% end %>
 			<% if !appointment.memo.empty? %>
     			<li>Any special memo: <%= appointment.memo %>(We will do the best to accommodate, but we are sorry that we can not guarantee.)</li>
