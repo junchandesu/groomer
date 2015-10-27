@@ -39,6 +39,9 @@ gem 'seed-fu', '~> 2.3'
 gem 'faker', '~> 1.5.0'
 # easy way to use input masked plugin on rails
 gem 'maskedinput-rails', '~> 1.4.0.0'
+# authorization
+gem 'pundit'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

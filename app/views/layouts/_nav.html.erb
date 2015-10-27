@@ -14,6 +14,9 @@
      <div class="navbar-collapse collapse navbar-right" id="bs-example-navbar-collapse-1" aria-expanded="true">
        <ul class="nav navbar-nav navbar-right　dropdown-menu">
         <% if current_user %>
+         <% if policy(current_user).role? %>
+           <li class=""><%= link_to "Future Booked records", booked_record_path(current_user) %>
+          <% end %>  
            <li class=""><%= link_to "New reservation", new_user_appointment_path(current_user) %></li>
            <li class=""><%= link_to "Your reservation", user_appointments_path(current_user) %></li>
            <li class=""><%= link_to "Your profile", edit_user_registration_path %></li>

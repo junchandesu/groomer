@@ -17,8 +17,24 @@
 			<br>
 			<br>
 		<% end %>
-		<div id='calendar'></div>
-		  <div id="calendarModal" class="modal fade">
+    </div>
+</div>
+<div class="row">
+ <div class="col-md-8">
+  <div id='calendar' class="center calendar-form"></div>
+ </div>
+ <div class="col-md-2 indicator-box-left">
+  <div id="indicate-box-top">
+   <div id="title-white"><h6>White: available dates</h6></div>
+   <div id="white-box" class="indicate-box"></div>
+   <div class="title"><h6>Pink:  booked dates</h6></div>
+   <div id="pink-box" class="indicate-box"></div>
+   <div class="title"><h6>Yellow: past dates</h6></div>
+   <div id="yellow-box" class="indicate-box"></div>
+  </div>
+ </div>
+ </div>  
+ <div id="calendarModal" class="modal fade">
 			<div class="modal-dialog">
    			 <div class="modal-content">
         		<div id="modalBody" class="modal-body"> </div>

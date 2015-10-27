@@ -1,0 +1,23 @@
+<br>
+<br>
+<br>
+<ul>
+	<% @appointments.each do |app| %>
+		<li>Check In Time:<%= app.check_in_time %>&nbsp&nbsp&nbsp
+		Telephone: <%= app.telephone %>
+		<% if app.user.first_name %>
+		 <%= app.user.first_name %>
+		<% end %>
+		<% if app.user.last_name %>
+		 <%= app.user.last_name %>
+		<% end %>
+		| <%= link_to "Edit", edit_user_appointment_path(app.user, app) %> | <%= link_to "Delete", user_appointment_path(app.user, app), method: :delete %>
+		</li>
+		<li>Dog Name(s):
+		<% app.appointments_dogs.each do |app_dog| %>
+		 <%= app_dog.dog.name %>.
+		<% end %>
+	     </li>
+	     <br />
+	<% end %>
+</ul>

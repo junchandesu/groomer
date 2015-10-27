@@ -105,6 +105,8 @@ GEM
     phony_rails (0.12.10)
       activesupport (>= 3.0)
       phony (~> 2.12)
+    pundit (1.0.0)
+      activesupport (>= 3.0.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -197,6 +199,7 @@ DEPENDENCIES
   momentjs-rails
   pg
   phony_rails
+  pundit
   rails (= 4.2.1)
   rails_12factor
   sass-rails (~> 5.0)

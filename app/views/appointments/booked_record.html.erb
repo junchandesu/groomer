@@ -1,0 +1,86 @@
+<%=render 'layouts/nav' %>
+<div class="row">
+ <div class="col-md-8">
+  <div id='calendar' class="center calendar-form"></div>
+ </div>
+ <div class="col-md-2 indicator-box-left">
+  <div id="indicate-box-top">
+   <div id="title-white"><h6>White: available dates</h6></div>
+   <div id="white-box" class="indicate-box"></div>
+   <div class="title"><h6>Pink:  booked dates</h6></div>
+   <div id="pink-box" class="indicate-box"></div>
+   <div class="title"><h6>Yellow: past dates</h6></div>
+   <div id="yellow-box" class="indicate-box"></div>
+   <div class="title"><h6>Grey: Store closed</h6></div>
+   <div id="grey-box" class="indicate-box"></div>
+  </div>
+ </div>
+ </div>
+ <br>
+ <br>
+ <div id ='clicked_date' class="left-margin">
+  Date: <%= select("appointment", "id", Appointment.booked_record, {include_blank: 'None'}) %>
+ </div>
+ 
+ <div id = 'loaded_zone'></div>
+
+<script type="text/javascript">
+ $(document).ready(function(){
+ 		var date = new Date();
+		var d = date.getDate();
+		var m = date.getMonth();
+		var y = date.getFullYear();
+		var month = new Array();
+ $('#appointment_id').change(function() {
+	//ajax request to appointment#booked_record
+ $.ajax({ type: "GET",   
+           url: "booked_record", 
+           data: { app_date: $('#appointment_id').val() }
+
+  });
+
+ });
+				
+ $('#calendar').fullCalendar({
+	editable: true,
+		dayRender : function(date, cell) {
+		var today = new Date();
+		var cellYear = date.format('YYYY');
+		var cellMonth = date.format('MM');
+		var cellDay = date.format('DD');
+		if (date < today) {
+			cell.css("background-color", "yellow");
+			cell.css("opacity", 0.5);
+		}
+
+	
+		$('.fc-day').each(function(){
+			var thisDate = $(this).attr('data-date');
+			var td = $(this).closest('td');
+			<% AppointmentsDog.list.each do |key, value| %>
+			  if ('<%= key %>' == thisDate){
+				td.addClass('background-pink');
+			}
+			<% end %>
+		});
+	},
+	dayClick: function(date, jsEvent, view) {
+		var today = new Date();
+		var clicked_day= date.format('MM-DD-YYYY');
+		console.log("you chose:" + clicked_day);
+       if ((!$(this).is('.fc-sun'))&&(!$(this).is('.fc-mon'))&&(!$(this).is('.fc-tue'))){
+       	 $('#clicked_date').empty();
+         $('#clicked_date').append("Appointment List on Date: " + clicked_day);
+           $('#clicked_date').append(
+        
+         );
+  	 
+     }
+    
+    },
+   weekMode: 'liquid',  //fixed week count
+   Boolean, default: true,  //resize the window
+   url: '#',
+   });
+ })
+</script>

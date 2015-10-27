@@ -7,18 +7,18 @@ class AppointmentsController < ApplicationController
 
     dogs = params[:appointment][:dog_id]
     dogs.shift #dumps first blank id
+    dog_count = dogs.count
+
    	@appointment = current_user.appointments.build(params_appo)
 
 
-    if Appointment.unavailable_for?(@appointment)
+    if Appointment.unavailable_for?(@appointment, dog_count)
       flash[:error] = "No appt for that day"
       redirect_to :back and return
     end
      if @appointment.save
       # create appointments_dog object for all dogs
       # paramsß will have dog ids
-      # @appointment.appointments_dogs.create(dog: dog)
-      # @appointments_dogs[@appointment][@appointment.dog]
         dogs.each do |dog|
           @appointment.appointments_dogs.create(dog_id: dog.to_i)
         end
@@ -38,7 +38,8 @@ class AppointmentsController < ApplicationController
    end
 
   def index
-    @appointments = current_user.appointments.all
+    @appointments = Appointment.visible_to(current_user)
+
   end
 
   def show
@@ -55,11 +56,15 @@ class AppointmentsController < ApplicationController
   end
 
   def edit
-    @appointment = current_user.appointments.find(params[:id])
+    @appointment = Appointment.find(params[:id])
+    @user = User.find(params[:user_id])
+    @appointment.user = @user
   end
 
   def update
     @appointment = Appointment.find(params[:id])
+    @user = User.find(params[:user_id])
+    @appointment.user = @user
     if @appointment.update_attributes(params_appo)
       flash[:notice] = "reservation confirmed"
       redirect_to thank_you_path(current_user, @appointment)    
@@ -77,6 +82,23 @@ class AppointmentsController < ApplicationController
       flash[:error] = "Appointment is deleted."
       redirect_to :back
     end
+  end
+
+  def booked_record
+   puts "yea" #test
+   puts params[:app_date] #test
+   puts params[:user_id] #test
+   @appointments = Appointment.where(app_date: params[:app_date]).order('check_in_time')
+   @apps = Array.new
+   @appointment_check_in_dates = @appointments.each do |app|
+    @apps << app.check_in_time
+   end
+   puts @apps  #test
+   respond_to do |format|
+    format.js
+    format.html
+   end
+
   end
 
   private

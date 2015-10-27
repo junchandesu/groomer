@@ -8,7 +8,18 @@
 <script type="text/javascript">
  $(document).ready(function(){
 	$('#calendars').fullCalendar({
-     
+       events: source,
+    header: {
+        left: '',
+        center: 'prev title next',
+        right: ''
+    },
+    eventClick:  function(event, jsEvent, view) {
+        //set the values and open the modal
+        $("#eventInfo").html(event.description);
+        $("#eventLink").attr('href', event.url);
+        $("#eventContent").dialog({ modal: true, title: event.title });
+    }
 });
 
 	

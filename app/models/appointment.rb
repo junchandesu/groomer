@@ -8,13 +8,15 @@ validates :app_date, presence: true
 validates :check_in_time, presence: true
 validates :telephone, presence: true
 validate :check_and_format_phone_number
+
+scope :visible_to, -> (user) { user.role == 'admin' ? all : where(user_id: user.id )}
 #validates :dog_id, presence: true  --removed validation because dog_id returns nil
 
 #after_create :send_confirmation_emails
 
   # Normalizes the attribute itself before validation
 #  validates_plausible_phone :telephone, presence: true
-def self.unavailable_for?(appointment)
+def self.unavailable_for?(appointment, dog_count)
   appts = Appointment.where(app_date: appointment.app_date)
   count = 0
 
@@ -22,9 +24,17 @@ def self.unavailable_for?(appointment)
     count += a.appointments_dogs.count
   end
   puts "*" * 20
-  puts count
-  return count > 6
+ count += dog_count
+  return count > 7
 
+end
+
+def self.booked_record
+   booked_date = Array.new
+   Appointment.all.each do  |d| 
+     booked_date << d.app_date
+  end
+  booked_date.uniq.sort
 end
 
 # before_validation do |model|

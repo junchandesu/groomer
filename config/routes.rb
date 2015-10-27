@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get 'welcome/contact'
 
   get 'users/:user_id/appointments/:id/thank_you' => 'appointments#thank_you', as: :thank_you
+  get 'users/:user_id/booked_record' => 'appointments#booked_record', as: :booked_record
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
