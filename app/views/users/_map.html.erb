@@ -1,0 +1,31 @@
+
+ <div style='width: 800px;'>
+    <div id="geolocation" style='width: 800px; height: 400px;'></div>
+  </div>
+
+<script type="text/javascript">
+var handler = Gmaps.build('Google');
+handler.buildMap({ provider: {zoom: 13}, internal: {id: 'geolocation', zoom: 5} }, function(){
+  if(navigator.geolocation)
+    navigator.geolocation.getCurrentPosition(displayOnMap);
+});
+
+function displayOnMap(position){
+  var marker = handler.addMarker({
+    lat: 33.892870, 
+    lng: -118.396175,
+    zoom: 8,
+    "infowindow" : "<a  href='https://www.google.com/maps/dir//1215+N+Sepulveda+Blvd,+Manhattan+Beach,+CA+90266/@33.8510316,-118.3668873,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x80c2b3f4fb6367e9:0x608b8052f248c3df!2m2!1d-118.3962835!2d33.888409' class='direction-map'><h3>Fuji Pet Salon</h3><h5>1215 North Sepulveda Boulevard, Manhattan Beach, CA 90266</h5></a>"
+
+  });
+  handler.map.centerOn(marker);
+};
+$(document).ready(function(){
+
+$("a.direction-map").click(function(){ 
+	window.open(this.href);
+	return false;
+
+});    
+});
+</script>
