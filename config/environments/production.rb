@@ -81,8 +81,8 @@ Rails.application.configure do
  
    # added due to the errors  Undefined variable: "$alert-padding"
   #config.assets.initialize_on_precompile = true 
-  Rails.application.config.assets.precompile += %w(creative.css font-awesome.css font-awesome.min.css animate.min.css css.css animate.min.css application.scss appointments.scss cdd(1) dogs.scss font-awesome.min.css welcome.scss *.scss)
-  Rails.application.config.assets.precompile += %w( *.js doggie.jpg)
+  # Rails.application.config.assets.precompile += %w(creative.css font-awesome.css font-awesome.min.css animate.min.css css.css animate.min.css application.scss appointments.scss cdd(1) dogs.scss font-awesome.min.css welcome.scss application.js appointments.coffee cbpAnimatedHeader.js classie.js creative.js dogs.coffee jquery.easing.min.js jquery.fittext.js jquery.maskedinput.js underscore.js welcome.coffee wow.min.js)
+  # Rails.application.config.assets.precompile += %w(doggie.jpg)
   puts "XXXXXXXXXXXXXX"+ config.assets.precompile.inspect
 
 end
