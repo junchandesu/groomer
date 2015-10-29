@@ -22,5 +22,10 @@ module Groomer
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    # On Heroku, you must set this line in your config/application.rb:
+    config.assets.initialize_on_precompile = true
+
+    Rails.application.config.assets.precompile += %w( .css .scss)
+    Rails.application.config.assets.precompile += %w( .js )
   end
 end

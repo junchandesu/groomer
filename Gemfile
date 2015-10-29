@@ -44,6 +44,10 @@ gem 'pundit'
 # required for Google Map
 gem 'geocoder'
 gem 'gmaps4rails'
+# precompile
+gem 'sprockets', '~> 3.0'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

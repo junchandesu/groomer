@@ -79,4 +79,10 @@ Rails.application.configure do
   # able to send emails
   config.action_mailer.default_url_options = { host: 'https://fuji-pet-salon.herokuapp.com/' }
  
+   # added due to the errors  Undefined variable: "$alert-padding"
+  #config.assets.initialize_on_precompile = true 
+  Rails.application.config.assets.precompile += %w( .css .scss)
+  Rails.application.config.assets.precompile += %w( .js )
+  puts "XXXXXXXXXXXXXX"+ config.assets.precompile.inspect
+
 end
