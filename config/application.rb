@@ -25,7 +25,12 @@ module Groomer
     # On Heroku, you must set this line in your config/application.rb:
     config.assets.initialize_on_precompile = true
 
+<<<<<<< HEAD
     Rails.application.config.assets.precompile += %w(creative.css.scss.erb font-awesome.css font-awesome.min.css animate.min.css css.css animate.min.css application.scss appointments.scss cdd(1) dogs.scss font-awesome.min.css welcome.scss *.scss)
     Rails.application.config.assets.precompile += %w( *.js doggie.jpg shampoo.jpg *.jpg)
+=======
+    Rails.application.config.assets.precompile += %w(creative.css font-awesome.css font-awesome.min.css animate.min.css css.css animate.min.css application.scss appointments.scss cdd(1) dogs.scss font-awesome.min.css welcome.scss *.scss)
+    Rails.application.config.assets.precompile += %w( *.js doggie.jpg)
+>>>>>>> c8c99838a180bb4d476c89d7c18ecb928e7f858c
   end
 end
