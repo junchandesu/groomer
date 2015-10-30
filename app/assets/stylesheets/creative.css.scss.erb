@@ -162,6 +162,14 @@ aside {
     display: block;
 
 }
+.map-outer {
+    margin: 0 auto;
+    width: 80%;
+    border:3px solid #FF99CC; /*fuji-pink*/
+    padding: 10px;
+}
+
+
 
 #indicate-box-top{
     width: 190px;
@@ -198,6 +206,10 @@ aside {
 
 #grey-box{
     background: grey;   
+}
+
+.img-responsive{
+    max-width: 100%;
 }
 
 @media(min-width:768px) {
@@ -257,7 +269,7 @@ header {
     min-height: auto;
     text-align: center;
     color: #fff;
-    background-image: url("doggie.jpg");
+    background-image: url(<%= asset_path('doggie.jpg') %>);
     background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;

@@ -115,7 +115,7 @@
     <section class="no-padding" id="portfolio">
         <div class="container-fluid">
             <div class="row no-gutter">
-                <div class="col-lg-4 col-md-6">
+                <div class="col-sm-6">
                     <a href="#" class="portfolio-box">
                         <%= image_tag "shampoo.jpg", class: "img-responsive img-width", alt: "" %>
                         <div class="portfolio-box-caption">
@@ -130,7 +130,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-md-6">
+                <div class="col-sm-6">
                     <a href="#" class="portfolio-box">
                         <%= image_tag "nailcutter.jpg", class: "img-responsive", alt:"" %>
                         <div class="portfolio-box-caption">
@@ -222,29 +222,24 @@
 
     <section id="contact">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Let's Get In Touch!</h2>
-                    <hr class="primary">
-                    <p>Call us for any questions and reservation!</p>
-                </div>
-                <div class="col-lg-4 col-lg-offset-2 text-center">
-                    <i class="fa fa-phone fa-3x wow bounceIn" style="visibility: visible; animation-name: bounceIn;"></i>
-                    <p>310-222-1111</p>
-                </div>
-                <div class="text-center">
-                    <p>Our business hours<p>
-                        <ul  style="list-style-type: none;">
-                            <li>Wednesday, Thursday, Friday, Saturday</li>
-                            <li>9:00am to 5:00pm</li>
-                            <li>Cloased: Sunday, Monday, and Tuesday</li>
-                            <li>1215 North Sepulveda Boulevard, Manhattan Beach, CA 90266</li>
-                        </ul>
-                </div>
-             </div>
-             <div class="row">
-                <%= render 'users/map' %>
-            </div>
+           <div class="text-center">
+                <h2 class="section-heading">Let's Get In Touch!</h2>
+                <hr class="primary">
+                <p>Call us for any questions and reservation!</p>
+                <i class="fa fa-phone fa-3x wow bounceIn" style="visibility: visible; animation-name: bounceIn;"></i>
+                <p>310-222-1111</p>
+                 <p>Our business hours<p>
+                 <ul  style="list-style-type: none;">
+                    <li>Wednesday, Thursday, Friday, Saturday</li>
+                    <li>9:00am to 5:00pm</li>
+                    <li>Cloased: Sunday, Monday, and Tuesday</li>
+                    <li>1215 North Sepulveda Boulevard, Manhattan Beach, CA 90266</li>               
+                </ul>                   
+               </div>
+            </div>            
+            <%= render 'users/map' %>
+          </div>          
         </div>
     </section>
+  
 
