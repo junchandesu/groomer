@@ -46,6 +46,8 @@ gem 'geocoder'
 gem 'gmaps4rails'
 # precompile
 gem 'sprockets', '~> 3.0'
+# CSS/stylesheet for assets pipeline
+gem "font-awesome-rails"
 
 
 # Use ActiveModel has_secure_password
