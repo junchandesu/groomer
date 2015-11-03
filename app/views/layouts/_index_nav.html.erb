@@ -1,0 +1,37 @@
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top affix-top">
+   <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="true">
+         <span class="sr-only">Toggle navigation</span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+        </button>
+       <a class="navbar-brand page-scroll" href="#page-top">Fuji Pet Salon</a>
+      </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+       <div class="navbar-collapse collapse navbar-right" id="bs-example-navbar-collapse-1" aria-expanded="true">
+         <ul class="nav navbar-nav navbar-right　dropdown-menu">
+          <li class="">
+           <a class="page-scroll" href="#about">About</a>
+          </li>
+           <li class="">
+             <a class="page-scroll" href="#services">Services</a>
+           </li>
+           <li class="">
+           <a class="page-scroll" href="#portfolio">Portfolio</a>
+           </li>
+           <li class="">
+            <a class="page-scroll" href="#contact">Contact</a>
+           </li>
+            <% if current_user %>
+              <li class=""><%= link_to current_user.email, edit_user_registration_path %>
+               <li class=""><%= link_to "Log out", destroy_user_session_path, ethod: :delete , class: "page-scroll" %></li>
+              <% end %>
+         </ul>
+         </div>
+          <!-- /.navbar-collapse -->
+       </div>
+       <!-- /.container-fluid -->
+</nav>

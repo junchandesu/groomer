@@ -1,0 +1,9 @@
+/* line 5, /Users/SekiFamily/code/groomer/app/assets/stylesheets/appointments.scss */
+.fc-sun, .fc-mon, .fc-tue {
+  background-color: grey;
+}
+
+/* line 9, /Users/SekiFamily/code/groomer/app/assets/stylesheets/appointments.scss */
+.background-pink {
+  background-color: pink;
+}
