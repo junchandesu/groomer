@@ -47,7 +47,7 @@ gem 'gmaps4rails'
 # precompile
 gem 'sprockets', '~> 3.0'
 # CSS/stylesheet for assets pipeline
-gem "font-awesome-rails"
+gem 'font-awesome-sass'
 
 
 # Use ActiveModel has_secure_password
