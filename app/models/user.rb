@@ -3,11 +3,11 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
-  #validate :check_and_format_phone_number
-
+  
    has_many :dogs
    has_many :appointments
 
+ # check if a user is admin
   def admin?
     role == 'admin'
   end

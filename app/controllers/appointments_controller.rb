@@ -16,7 +16,7 @@ class AppointmentsController < ApplicationController
       flash[:error] = "No appt for that day"
       redirect_to :back and return
     end
-     if @appointment.save
+     if dogs.any? && @appointment.save
       # create appointments_dog object for all dogs
       # paramsß will have dog ids
         dogs.each do |dog|
@@ -31,9 +31,12 @@ class AppointmentsController < ApplicationController
 
   		  flash[:notice] = "reservation confirmed"
   		  redirect_to thank_you_path(current_user, @appointment)
-  	  elsif 
-  		  flash[:error] = "error saving appointment"
+  	  elsif !dogs.any?
+  		  flash[:error] = "You must select a dog to create an appointment."
   		  render :new
+      else
+        flash[:error] = "Something went wrong."
+        render :new
   	  end
    end
 

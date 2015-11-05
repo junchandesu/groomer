@@ -56,7 +56,7 @@
            		<p><i>If you do not choose one, you will be bringing one dog.</i></p>
            		<p><%= link_to "Add/Edit/Delete your dog information ", new_user_dog_path(current_user) %></p>
            	 <% else %>
-           	  <p><%= link_to "Add your dog information or we undersatnd you will be bringing one dog.", new_user_dog_path(current_user) %></p>
+           	  <p><%= link_to "Add your dog information or we understand you will be bringing one dog.", new_user_dog_path(current_user) %></p>
       
            	<% end %>
 			<%= form_group_tag(appointment.errors[:check_in_time]) do %>
@@ -117,9 +117,7 @@ $('#calendar').fullCalendar({
 		var cellYear = date.format('YYYY');
 		var cellMonth = date.format('MM');
 		var cellDay = date.format('DD');
-		        
-		// date = $.fullCalendar.formatDate(date, 'YYYY, MM, DD');
-		// cellDate = $('.fc-day').find(data('date'));
+		     
 		if (date < today) {
 			cell.css("background-color", "yellow");
 			cell.css("opacity", 0.5);
@@ -166,16 +164,9 @@ $('#calendar').fullCalendar({
     
     },
 
-      // eventClick:  function(event, jsEvent, view) {
-      //       $('#modalTitle').html(event.title);
-      //       $('#modalBody').html(event.description);
-      //      	 $('#eventUrl').attr('href',event.url);
-      //       $('#calendarModal').modal();
-
-      //   },
-		
+ 	
 	weekMode: 'liquid',  //fixed week count
-	Boolean, default: true,  //resize the window
+// Boolean, default: true,  //resize the window
 	url: '#',
 
 
