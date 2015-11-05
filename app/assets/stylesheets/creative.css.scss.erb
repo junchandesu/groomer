@@ -212,6 +212,9 @@ aside {
     max-width: 100%;
 }
 
+
+
+
 @media(min-width:768px) {
     .navbar-default {
         border-color: rgba(255,255,255,.3);
@@ -270,7 +273,7 @@ header {
     text-align: center;
     color: #fff;
     background-image: url(<%= asset_path('doggie.jpg') %>);
-background-position: center;
+    background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -279,8 +282,7 @@ background-position: center;
 
 header .header-content {
     position: relative;
-    width: 100%;;
-
+    width: 100%;
     padding: 100px 15px;
     text-align: center;
 }
@@ -407,6 +409,11 @@ header .header-content .header-content-inner p {
 
     .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
         font-size: 22px;
+    }
+
+    #calendar {
+    max-width: 500px;
+    max-height: 500px;
     }
 }
 
@@ -615,4 +622,10 @@ img::-moz-selection {
 
 body {
     webkit-tap-highlight-color: #222;
+}
+
+
+#calendar {
+    width: 100%;
+    margin-bottom: 20px;
 }

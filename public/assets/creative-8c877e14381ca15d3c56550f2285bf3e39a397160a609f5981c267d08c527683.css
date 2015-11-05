@@ -1,0 +1,718 @@
+/*!
+ * Start Bootstrap - Creative Bootstrap Theme (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+/* line 9, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* line 16, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+body {
+  font-family: Merriweather,'Helvetica Neue',Arial,sans-serif;
+}
+
+/* line 20, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+hr {
+  max-width: 50px;
+  border-color: #FF99CC;
+  border-width: 3px;
+}
+
+/* line 26, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+hr.light {
+  border-color: #fff;
+}
+
+/* line 30, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+a {
+  color: #FF99CC;
+  -webkit-transition: all .35s;
+  -moz-transition: all .35s;
+  transition: all .35s;
+}
+
+/* line 37, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+a:hover,
+a:focus {
+  color: #FF99CC;
+}
+
+/* line 42, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+}
+
+/* line 51, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+p {
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* line 57, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+ul {
+  list-style: none;
+}
+
+/* line 61, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.bg-primary {
+  background-color: #FF99CC;
+}
+
+/* line 65, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.bg-dark {
+  color: #fff;
+  background-color: #222;
+}
+
+/* line 70, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.text-faded {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* line 74, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+section {
+  padding: 100px 0;
+}
+
+/* line 78, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+aside {
+  padding: 50px 0;
+}
+
+/* line 82, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.no-padding {
+  padding: 0;
+}
+
+/* line 86, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.navbar-default {
+  border-color: rgba(34, 34, 34, 0.05);
+  font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+  background-color: #fff;
+  -webkit-transition: all .35s;
+  -moz-transition: all .35s;
+  transition: all .35s;
+}
+
+/* line 95, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.navbar-default .navbar-header .navbar-brand {
+  text-transform: uppercase;
+  font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+  font-weight: 700;
+  color: #FF99CC;
+}
+
+/* line 102, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.navbar-default .navbar-header .navbar-brand:hover,
+.navbar-default .navbar-header .navbar-brand:focus {
+  color: #eb3812;
+}
+
+/* line 107, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.navbar-default .nav > li > a,
+.navbar-default .nav > li > a:focus {
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 700;
+  color: #222;
+}
+
+/* line 115, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.navbar-default .nav > li > a:hover,
+.navbar-default .nav > li > a:focus:hover {
+  color: #FF99CC;
+}
+
+/* line 120, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.navbar-default .nav > li.active > a,
+.navbar-default .nav > li.active > a:focus {
+  color: #FF99CC !important;
+  background-color: transparent;
+}
+
+/* line 126, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.navbar-default .nav > li.active > a:hover,
+.navbar-default .nav > li.active > a:focus:hover {
+  background-color: transparent;
+}
+
+/* line 131, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.navbar-toggle {
+  border-color: #FF99CC;
+  color: black;
+}
+
+/* line 136, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.icon-bar {
+  background-color: #FF99CC !important;
+}
+
+/* line 140, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.navbar-background {
+  background-color: #F2DFE9;
+}
+
+/* line 144, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.calendar-form {
+  width: 80%;
+}
+
+/* line 148, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.pink {
+  background-color: #FF99CC;
+  height: 100%;
+}
+
+/* line 153, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.indicate-box {
+  width: 30px;
+  height: 30px;
+  border: 5px solid gray;
+  margin: 5px;
+}
+
+/* line 160, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+/* line 166, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.map-outer {
+  margin: 0 auto;
+  width: 80%;
+  border: 3px solid #FF99CC;
+  /*fuji-pink*/
+  padding: 10px;
+}
+
+/* line 175, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+#indicate-box-top {
+  width: 190px;
+  height: 170px;
+  padding: 10px;
+  border: 5px solid gray;
+  left: 10px;
+  margin-bottom: 20px;
+  margin-left: 50px;
+}
+
+/* line 185, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.left-margin {
+  margin-left: 50px;
+  padding-left: 20px;
+}
+
+/* line 190, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+#title-white {
+  float: right;
+  margin-top: 10px;
+}
+
+/* line 195, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.title {
+  float: right;
+}
+
+/* line 199, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+#pink-box {
+  background: pink;
+}
+
+/* line 203, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+#yellow-box {
+  background: yellow;
+  opacity: 0.5;
+}
+
+/* line 208, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+#grey-box {
+  background: grey;
+}
+
+/* line 212, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.img-responsive {
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  /* line 217, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+  .navbar-default {
+    border-color: rgba(255, 255, 255, 0.3);
+    background-color: transparent;
+  }
+
+  /* line 222, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+  .navbar-default .navbar-header .navbar-brand {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  /* line 226, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+  .navbar-default .navbar-header .navbar-brand:hover,
+  .navbar-default .navbar-header .navbar-brand:focus {
+    color: #fff;
+  }
+
+  /* line 231, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+  .navbar-default .nav > li > a,
+  .navbar-default .nav > li > a:focus {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  /* line 236, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+  .navbar-default .nav > li > a:hover,
+  .navbar-default .nav > li > a:focus:hover {
+    color: #fff;
+  }
+
+  /* line 241, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+  .navbar-default.affix {
+    border-color: rgba(34, 34, 34, 0.05);
+    background-color: #fff;
+  }
+
+  /* line 246, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+  .navbar-default.affix .navbar-header .navbar-brand {
+    font-size: 14px;
+    color: #FF99CC;
+  }
+
+  /* line 251, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+  .navbar-default.affix .navbar-header .navbar-brand:hover,
+  .navbar-default.affix .navbar-header .navbar-brand:focus {
+    color: #eb3812;
+  }
+
+  /* line 256, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+  .navbar-default.affix .nav > li > a,
+  .navbar-default.affix .nav > li > a:focus {
+    color: #222;
+  }
+
+  /* line 261, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+  .navbar-default.affix .nav > li > a:hover,
+  .navbar-default.affix .nav > li > a:focus:hover {
+    color: #FF99CC;
+  }
+}
+/* line 267, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+header {
+  position: relative;
+  width: 100%;
+  min-height: auto;
+  text-align: center;
+  color: #fff;
+  background-image: url(/assets/doggie-f6bd124da18cea9d7345c4240d291588a4eb9e235ab4cfacacb1909e83db6bd3.jpg);
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+/* line 281, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+header .header-content {
+  position: relative;
+  width: 100%;
+  padding: 100px 15px;
+  text-align: center;
+}
+
+/* line 289, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+header .header-content .header-content-inner h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+/* line 296, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+header .header-content .header-content-inner hr {
+  margin: 30px auto;
+}
+
+/* line 300, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+header .header-content .header-content-inner p {
+  margin-bottom: 50px;
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@media (min-width: 768px) {
+  /* line 308, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+  header {
+    min-height: 100%;
+  }
+
+  /* line 312, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+  header .header-content {
+    position: absolute;
+    top: 50%;
+    padding: 0 50px;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+  /* line 321, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+  header .header-content .header-content-inner {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1000px;
+  }
+
+  /* line 327, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+  header .header-content .header-content-inner p {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 80%;
+    font-size: 18px;
+  }
+}
+/* line 335, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.section-heading {
+  margin-top: 0;
+}
+
+/* line 339, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.service-box {
+  margin: 50px auto 0;
+  max-width: 400px;
+}
+
+@media (min-width: 992px) {
+  /* line 345, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+  .service-box {
+    margin: 20px auto 0;
+  }
+}
+/* line 350, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.service-box p {
+  margin-bottom: 0;
+}
+
+/* line 354, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.portfolio-box {
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  max-width: 650px;
+}
+
+/* line 361, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.portfolio-box .portfolio-box-caption {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: #fff;
+  opacity: 0;
+  background: #FF99CC;
+  -webkit-transition: all .35s;
+  -moz-transition: all .35s;
+  transition: all .35s;
+}
+
+/* line 376, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.portfolio-box .portfolio-box-caption .portfolio-box-caption-content {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  transform: translateY(-50%);
+}
+
+/* line 384, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category,
+.portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
+  padding: 0 15px;
+  font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+}
+
+/* line 390, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* line 396, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
+  font-size: 18px;
+}
+
+/* line 400, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.portfolio-box:hover .portfolio-box-caption {
+  opacity: 1;
+}
+
+@media (min-width: 768px) {
+  /* line 405, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+  .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category {
+    font-size: 16px;
+  }
+
+  /* line 409, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+  .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
+    font-size: 22px;
+  }
+
+  /* line 412, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+  #calendar {
+    max-width: 500px;
+    max-height: 500px;
+  }
+}
+/* line 418, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.call-to-action h2 {
+  margin: 0 auto 20px;
+}
+
+/* line 422, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.text-primary {
+  color: #FF99CC;
+}
+
+/* line 426, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.no-gutter > [class*=col-] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+/* line 431, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.btn-default {
+  border-color: #FF99CC;
+  color: #222;
+  background-color: #fff;
+  -webkit-transition: all .35s;
+  -moz-transition: all .35s;
+  transition: all .35s;
+}
+
+/* line 440, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.btn-default:hover,
+.btn-default:focus,
+.btn-default.focus,
+.btn-default:active,
+.btn-default.active,
+.open > .dropdown-toggle.btn-default {
+  border-color: #ededed;
+  color: #222;
+  background-color: #f2f2f2;
+}
+
+/* line 451, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.btn-default:active,
+.btn-default.active,
+.open > .dropdown-toggle.btn-default {
+  background-image: none;
+}
+
+/* line 457, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.btn-default.disabled,
+.btn-default[disabled],
+fieldset[disabled] .btn-default,
+.btn-default.disabled:hover,
+.btn-default[disabled]:hover,
+fieldset[disabled] .btn-default:hover,
+.btn-default.disabled:focus,
+.btn-default[disabled]:focus,
+fieldset[disabled] .btn-default:focus,
+.btn-default.disabled.focus,
+.btn-default[disabled].focus,
+fieldset[disabled] .btn-default.focus,
+.btn-default.disabled:active,
+.btn-default[disabled]:active,
+fieldset[disabled] .btn-default:active,
+.btn-default.disabled.active,
+.btn-default[disabled].active,
+fieldset[disabled] .btn-default.active {
+  border-color: #fff;
+  background-color: #fff;
+}
+
+/* line 479, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.btn-default .badge {
+  color: #fff;
+  background-color: #222;
+}
+
+/* line 484, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.btn-primary {
+  border-color: #FF99CC;
+  color: #fff;
+  background-color: #FF99CC;
+  -webkit-transition: all .35s;
+  -moz-transition: all .35s;
+  transition: all .35s;
+}
+
+/* line 493, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary.focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  border-color: #ed431f;
+  color: #fff;
+  background-color: #ee4b28;
+}
+
+/* line 504, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  background-image: none;
+}
+
+/* line 510, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.btn-primary.disabled,
+.btn-primary[disabled],
+fieldset[disabled] .btn-primary,
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled.focus,
+.btn-primary[disabled].focus,
+fieldset[disabled] .btn-primary.focus,
+.btn-primary.disabled:active,
+.btn-primary[disabled]:active,
+fieldset[disabled] .btn-primary:active,
+.btn-primary.disabled.active,
+.btn-primary[disabled].active,
+fieldset[disabled] .btn-primary.active {
+  border-color: #FF99CC;
+  background-color: #FF99CC;
+}
+
+/* line 532, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.top {
+  margin-top: 60px;
+}
+
+/* line 536, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.left-space {
+  margin-left: 20px;
+}
+
+/* line 540, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.btn-primary .badge {
+  color: #FF99CC;
+  background-color: #fff;
+}
+
+/* line 545, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.btn {
+  border: 0;
+  border-radius: 300px;
+  text-transform: uppercase;
+  font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+  font-weight: 700;
+}
+
+/* line 553, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.btn-xl {
+  padding: 15px 30px;
+}
+
+/* line 557, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+::-moz-selection {
+  text-shadow: none;
+  color: #fff;
+  background: #222;
+}
+
+/* line 563, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.heart {
+  position: relative;
+  width: 50px;
+  height: 45px;
+}
+
+/* line 568, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.heart:before,
+.heart:after {
+  position: absolute;
+  content: "";
+  left: 25px;
+  top: 0;
+  width: 25px;
+  height: 40px;
+  background: #fc2e5a;
+  -moz-border-radius: 25px 25px 0 0;
+  border-radius: 25px 25px 0 0;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-transform-origin: 0 100%;
+  -moz-transform-origin: 0 100%;
+  -ms-transform-origin: 0 100%;
+  -o-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+}
+
+/* line 590, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+.heart:after {
+  left: 0;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transform-origin: 100% 100%;
+  -moz-transform-origin: 100% 100%;
+  -ms-transform-origin: 100% 100%;
+  -o-transform-origin: 100% 100%;
+  transform-origin: 100% 100%;
+}
+
+/* line 605, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+::selection {
+  text-shadow: none;
+  color: #fff;
+  background: #222;
+}
+
+/* line 611, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+img::selection {
+  color: #fff;
+  background: 0 0;
+}
+
+/* line 616, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+img::-moz-selection {
+  color: #fff;
+  background: 0 0;
+}
+
+/* line 621, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+body {
+  webkit-tap-highlight-color: #222;
+}
+
+/* line 625, /Users/SekiFamily/code/groomer/app/assets/stylesheets/creative.css.scss.erb */
+#calendar {
+  width: 100%;
+  margin-bottom: 20px;
+}

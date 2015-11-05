@@ -24,8 +24,8 @@ module Groomer
     config.active_record.raise_in_transactional_callbacks = true
     # On Heroku, you must set this line in your config/application.rb:
     config.assets.initialize_on_precompile = true
-
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
     Rails.application.config.assets.precompile += %w(creative.css.scss.erb creative.css font-awesome.css font-awesome.min.css animate.min.css css.css animate.min.css application.scss appointments.scss cdd(1) dogs.scss font-awesome.min.css welcome.scss *.scss)
-    Rails.application.config.assets.precompile += %w( *.js doggie.jpg shampoo.jpg *.jpg *.woff *.tff)
+    Rails.application.config.assets.precompile += %w( *.js doggie.jpg shampoo.jpg *.jpg *.woff fontawesome-webfont.ttf *.ttf fontawesome-webfont.eot fontawesome-webfont.svg fontawesome-webfont.woff  fontawesome-webfont.woff2)
  end
 end
